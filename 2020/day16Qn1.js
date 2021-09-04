@@ -1,22 +1,10 @@
 const fs = require("fs");
 const day16Data = fs.readFileSync("day16Input.txt", "utf8").split("\n");
-console.log(day16Data);
 let seqMap = new Map();
 let myTicket = [];
 let otherTickets = [];
 let flag = "";
-// const matchVal = (value) => {
-//   flag = false;
-//   seqMap.forEach((val) => {
-//     val.forEach((val1) => {
-//       if (value >= val1[0] && value <= val1[1]) {
-//         flag = true;
-//         return flag;
-//       }
-//     });
-//   });
-//   return flag;
-// };
+
 const matchVal = (value) => {
   return Array.from(seqMap.values())
     .flatMap((val) => val)
@@ -40,9 +28,6 @@ day16Data.forEach((val) => {
     otherTickets.push(val.split(",").map((val) => +val));
   }
 });
-console.log(Array.from(seqMap.values()).flatMap((val) => val));
-console.log(myTicket);
-console.log(otherTickets);
 
 console.log(
   otherTickets
@@ -50,22 +35,3 @@ console.log(
     .filter((val1) => !matchVal(val1))
     .reduce((acc, val2) => acc + val2, 0)
 );
-
-const day16Data = fs.readFileSync("day16Input.txt", "utf8").split("\n");
-console.log(day16Data);
-let seqMap = new Map();
-let myTicket = [];
-let otherTickets = [];
-let flag = "";
-const matchVal = (value) => {
-  flag = false;
-  seqMap.forEach((val) => {
-    val.forEach((val1) => {
-      if (value >= val1[0] && value <= val1[1]) {
-        flag = true;
-        return flag;
-      }
-    });
-  });
-  return flag;
-};

@@ -1,6 +1,5 @@
 const fs = require("fs");
 const day14Data = fs.readFileSync("day14Input.txt", "utf8").split("\n");
-console.log(day14Data);
 let mask = "";
 let resultMap = new Map();
 let finalVal = 0;
@@ -13,7 +12,6 @@ const maskValue = function (maskIn, valueIn) {
     .join(""));
 };
 const calcMemPos = function (memValue) {
-  // console.log(memValue);
   if (memValue.every((val) => !val.includes("X"))) {
     return memValue;
   } else {
@@ -48,7 +46,6 @@ const inputObj = day14Data
 inputObj.forEach((val) => {
   val.newMemPos = calcMemPos([val.maskedMemPos]);
 });
-console.log(inputObj);
 inputObj.forEach((val) => {
   val.newMemPos.forEach((val1) => resultMap.set(val1, val.value));
 });

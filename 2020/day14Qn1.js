@@ -1,6 +1,5 @@
 const fs = require("fs");
 const day14Data = fs.readFileSync("day14Input.txt", "utf8").split("\n");
-console.log(day14Data);
 let mask = "";
 let resultMap = new Map();
 const maskValue = function (maskIn, valueIn) {
@@ -25,7 +24,6 @@ const inputObj = day14Data
     }
   })
   .filter((val) => val);
-console.log(inputObj);
 inputObj.forEach((val) => {
   resultMap.set(val.memPos, maskValue(val.mask, val.value));
 });

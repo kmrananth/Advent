@@ -13,4 +13,4 @@ day2Data.forEach((val) => {
   }
   count1++;
 });
-console.log(count, count1);
+console.log(count);

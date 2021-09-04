@@ -14,7 +14,6 @@ do {
   }
   cardPublickey /= cardSubject;
   cardLoopSize++;
-  // console.log(cardLoopSize, cardPublickey);
 } while (cardPublickey != 1);
 
 do {
@@ -24,13 +23,10 @@ do {
   }
   doorPublicKey /= doorSubject;
   doorLoopSize++;
-  // console.log(doorLoopSize, doorPublicKey);
 } while (doorPublicKey != 1);
 
-console.log(cardLoopSize, doorLoopSize);
-
 for (let i = 0; i < cardLoopSize; i++) {
-  encKey *= 4542595;
+  encKey *= doorPublicKey;
   encKey %= remValue;
 }
 console.log(encKey);

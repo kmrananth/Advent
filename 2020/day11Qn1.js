@@ -24,19 +24,15 @@ while (flag) {
         if (occ > 3 && val1 === "#") {
           firstLoop[i][j] = "L";
           flag = true;
-          // if ((m = 4)) console.log(occ);
         } else if (occ === 0 && val1 === "L") {
           firstLoop[i][j] = "#";
           flag = true;
-          // if ((m = 4)) console.log(occ);
         } else firstLoop[i][j] = val1;
       } else firstLoop[i][j] = val1;
     });
   });
   matrix = [...[...firstLoop]];
-  console.log(++m, flag);
 }
-// console.log(firstLoop);
 console.log(
   firstLoop.flatMap((val) => val).filter((val) => val === "#").length
 );

@@ -41,12 +41,7 @@ alerganMap.forEach((val, key) => {
 });
 
 console.log(
-  [...alerganMap.keys()]
-    .flatMap((val) => val)
-    .sort()
-    .reduce((aggr, val) => {
-      aggr = aggr + "," + alerganMap.get(val)[0];
-      return aggr;
-    }, "")
-    .substring(1)
+  ingredients.filter(
+    (val1) => ![...alerganMap.values()].flatMap((val) => val).includes(val1)
+  ).length
 );

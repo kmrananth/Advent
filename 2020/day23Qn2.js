@@ -42,8 +42,4 @@ while (j < 10000000) {
   j++;
 }
 
-console.log(
-  data.get(1),
-  data.get(data.get(1)),
-  data.get(1) * data.get(data.get(1))
-);
+console.log(data.get(1) * data.get(data.get(1)));

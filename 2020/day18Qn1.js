@@ -27,13 +27,11 @@ const evaluation = function (temp) {
     } else {
       stack.push(val2);
     }
-    // console.log(val2, stack);
   });
   return stack;
 };
 day18Data.forEach((val, i) => {
   const temp = val.split("").filter((val1) => val1 !== " ");
-  // console.log(evaluation(temp)[0]);
   final += +evaluation(temp);
 });
 console.log(final);

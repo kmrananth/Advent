@@ -20,9 +20,8 @@ jmp.forEach((val) => {
   });
   codes1[val].inst = "nop";
   for (let i = 0; ; ) {
-    // console.log(acc, i, codes1[i]);
     if (i === codes1.length) {
-      console.log(val, acc);
+      console.log(acc);
       break;
     }
     if (codes1[i].executed) break;

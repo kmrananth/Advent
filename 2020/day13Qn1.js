@@ -11,9 +11,4 @@ const shuttleStart = shuttle.map((val) => {
 const latest = shuttleStart.reduce((acc, val) => {
   return acc > val ? val : acc;
 }, shuttleStart[0]);
-console.log(
-  shuttle,
-  shuttleStart,
-  latest,
-  shuttle[shuttleStart.indexOf(latest)] * (latest - timeStart)
-);
+console.log(shuttle[shuttleStart.indexOf(latest)] * (latest - timeStart));

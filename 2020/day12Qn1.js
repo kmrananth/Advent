@@ -36,6 +36,5 @@ day12Data.forEach((val) => {
       currentDirection = changeDirection(currentDirection, 360 - value);
       break;
   }
-  // console.log(val, currentDirection, x, y);
 });
-console.log(x, y, Math.abs(x) + Math.abs(y));
+console.log(Math.abs(x) + Math.abs(y));

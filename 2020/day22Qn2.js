@@ -37,7 +37,6 @@ const updateDeck = function (winner, deck) {
 };
 
 const game = function (deck) {
-  // console.log(deck);
   let player1Deck = deck.player1.map((val) => val);
   let player1Cmpr = player1Deck.join(",");
   let player2Deck = deck.player2.map((val) => val);
@@ -46,7 +45,6 @@ const game = function (deck) {
   let player1Val = player1Deck.shift();
   let player2Val = player2Deck.shift();
   if (deck.cmpr.find((val) => val === player1Cmpr)) {
-    // console.log("Player1Win");
     deck = updateDeck("player1", deck);
     return deck;
   } else {
@@ -80,7 +78,6 @@ const game = function (deck) {
   }
 };
 const final = game({ player1, player2, cmpr: [] });
-console.log(final);
 const winner =
   final.player1.length === 0
     ? final.player2.map((val) => val)

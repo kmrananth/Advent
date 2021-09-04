@@ -44,5 +44,4 @@ checkBag = function (bagColor, tst) {
 };
 const test = new Set();
 checkBag("shiny gold", test);
-console.log(test);
 console.log(test.size);

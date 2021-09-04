@@ -6,7 +6,6 @@ const codes = day8Data.map((val) => {
   return { inst: temp[0], value: parseInt(temp[1]), executed: false };
 });
 for (let i = 0; ; ) {
-  console.log(i, acc, codes[i]);
   if (codes[i].executed) break;
   if (codes[i].inst === "acc") {
     codes[i].executed = true;
@@ -19,6 +18,5 @@ for (let i = 0; ; ) {
     codes[i].executed = true;
     i++;
   }
-  console.log("tst" + acc, codes[i]);
 }
 console.log(acc);

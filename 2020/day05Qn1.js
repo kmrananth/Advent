@@ -15,11 +15,8 @@ getSeatID = function (seatPattern) {
 day5Data.forEach((val, i) => {
   seatID[i] = getSeatID(val);
 });
-
-console.log(
-  seatID
-    .sort((a, b) => a - b)
-    .reduce((a, b) => {
-      return a + 1 !== b ? a : b;
-    }) + 1
-);
+const maxSeatID = seatID.reduce((acc, val) => {
+  if (val > acc) return val;
+  else return acc;
+}, 0);
+console.log(maxSeatID);

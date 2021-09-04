@@ -7,6 +7,6 @@ const fileData = fs
 fileData.forEach((val) => {
   const val1 = 2020 - val;
   if (fileData.includes(val1)) {
-    console.log(val, val1, val * val1);
+    console.log(val * val1);
   }
 });

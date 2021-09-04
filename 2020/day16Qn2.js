@@ -1,4 +1,10 @@
 const fs = require("fs");
+const day16Data = fs.readFileSync("day16Input.txt", "utf8").split("\n");
+let seqMap = new Map();
+let myTicket = [];
+let otherTickets = [];
+let flag = "";
+
 const matchVal = (value) => {
   return Array.from(seqMap.values())
     .flatMap((val) => val)
@@ -22,19 +28,14 @@ day16Data.forEach((val) => {
     otherTickets.push(val.split(",").map((val) => +val));
   }
 });
-console.log(Array.from(seqMap.values()).flatMap((val) => val));
-console.log(myTicket);
-console.log(otherTickets);
 
 const otherTicketsNew = otherTickets.filter((val) =>
   val.every((val1) => matchVal(val1))
 );
-console.log(otherTicketsNew);
 
 let fieldsMap = new Map();
 const fields = Array.from(seqMap.keys());
 for (let i = 0; i < fields.length; i++) fieldsMap.set(i, fields);
-console.log(fieldsMap);
 const removeField = function (keyVal, field) {
   fieldsMap.forEach((val, i) => {
     if (i !== keyVal && val.includes(field)) {
@@ -65,7 +66,6 @@ const checkMap = function (value) {
   });
 };
 otherTicketsNew.forEach((val) => checkMap(val));
-console.log(fieldsMap);
 const departure = Array.from(fieldsMap)
   .filter((val) => val[1][0].includes("departure"))
   .map((val1) => val1[0]);

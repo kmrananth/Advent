@@ -36,11 +36,4 @@ for (let i = 1; i < rows; i++) {
     }
   }
 }
-console.log(
-  treeCount1,
-  treeCount2,
-  treeCount3,
-  treeCount4,
-  treeCount5,
-  treeCount1 * treeCount2 * treeCount3 * treeCount4 * treeCount5
-);
+console.log(treeCount1 * treeCount2 * treeCount3 * treeCount4 * treeCount5);
