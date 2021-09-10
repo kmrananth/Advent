@@ -61,7 +61,4 @@ const corners = [...tileMap]
   .filter((val) => [...val[1].link].length === 2)
   .map((val) => val[0])
 
-console.log(
-  corners,
-  corners.reduce((aggr, val) => aggr * val, 1)
-)
+console.log(corners.reduce((aggr, val) => aggr * val, 1))

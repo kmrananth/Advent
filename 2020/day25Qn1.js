@@ -1,9 +1,14 @@
 const fs = require("fs")
+const day25Data = fs
+  .readFileSync("day25Input.txt", "utf8")
+  .split("\n")
+  .filter((val) => val)
+  .map((val) => parseInt(val))
 const cardSubject = 7
-const refKey = 2959251
-let cardPublickey = 2959251
+const refKey = day25Data[0]
+let cardPublickey = day25Data[1]
 const doorSubject = 7
-let doorPublicKey = 4542595
+let doorPublicKey = refKey
 let cardLoopSize = 0
 let doorLoopSize = 0
 let remValue = 20201227
