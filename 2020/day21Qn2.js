@@ -1,52 +1,51 @@
-const fs = require("fs");
-const day21Data = fs.readFileSync("day21Input.txt", "utf8").split("\n");
+const fs = require("fs")
+const day21Data = fs.readFileSync("day21Input.txt", "utf8").split("\n")
 
-let ingredients = [];
-let alerganMap = new Map();
+let ingredients = []
+let alerganMap = new Map()
 const createData = function (input, mapVal, ingr) {
-  const ing = input[1].split(" ");
-  const alr = input[2].split(", ");
-  ingr.push(...ing);
-  console.log(ing, alr);
+  const ing = input[1].split(" ")
+  const alr = input[2].split(", ")
+  ingr.push(...ing)
   alr.forEach((val) => {
-    let exist = mapVal.get(val);
-    let newVal = [];
+    let exist = mapVal.get(val)
+    let newVal = []
     if (exist) {
       ing.forEach((val1) => {
-        if (exist.includes(val1)) newVal.push(val1);
-      });
+        if (exist.includes(val1)) newVal.push(val1)
+      })
     } else {
-      newVal = ing.map((val2) => val2);
+      newVal = ing.map((val2) => val2)
     }
-    mapVal.set(val, newVal);
-  });
-};
+    mapVal.set(val, newVal)
+  })
+}
 day21Data.forEach((val) => {
-  createData(/(.*) \(contains (.*)\)/.exec(val), alerganMap, ingredients);
-});
+  createData(/(.*) \(contains (.*)\)/.exec(val), alerganMap, ingredients)
+})
 
 const removeKey = function (key, val, alerganMap) {
   alerganMap.forEach((val1, key1) => {
     if ((key1 !== key) & val1.includes(val)) {
-      val1.splice(val1.indexOf(val), 1);
-      alerganMap.set(key1, val1);
-      if (val1.length === 1) removeKey(key1, ...val1, alerganMap);
+      val1.splice(val1.indexOf(val), 1)
+      alerganMap.set(key1, val1)
+      if (val1.length === 1) removeKey(key1, ...val1, alerganMap)
     }
-  });
-  return;
-};
+  })
+  return
+}
 
 alerganMap.forEach((val, key) => {
-  if (val.length === 1) removeKey(key, ...val, alerganMap);
-});
+  if (val.length === 1) removeKey(key, ...val, alerganMap)
+})
 
 console.log(
   [...alerganMap.keys()]
     .flatMap((val) => val)
     .sort()
     .reduce((aggr, val) => {
-      aggr = aggr + "," + alerganMap.get(val)[0];
-      return aggr;
+      aggr = aggr + "," + alerganMap.get(val)[0]
+      return aggr
     }, "")
     .substring(1)
-);
+)

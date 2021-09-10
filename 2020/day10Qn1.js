@@ -2,6 +2,7 @@ const fs = require("fs")
 day10Data = fs
   .readFileSync("day10Input.txt", "utf8")
   .split("\n")
+  .filter((val) => val)
   .map((val) => parseInt(val))
 const sortData = [0, ...day10Data]
 sortData.sort((a, b) => a - b)
@@ -17,25 +18,4 @@ sortData.forEach((val) => {
   if (diff === 1) diff1++
   temp = val
 })
-diff3++
-
-let perm = []
-for (let i = 0; i < sortData.length; i++) {
-  if (
-    sortData[i] - sortData[i - 1] === 1 &&
-    sortData[i + 1] - sortData[i] === 1
-  ) {
-    perm.push(sortData[i])
-  }
-}
-
-let perm1 = []
-for (let i = 0; i < perm.length; i++) {
-  if (perm[i] - perm[i - 1] === 1 && perm[i + 1] - perm[i] === 1) {
-    perm1.push(perm[i])
-  }
-}
-
-console.log(
-  Math.pow(2, perm.length - 3 * perm1.length) * Math.pow(7, perm1.length)
-)
+console.log(diff1 * diff3)
