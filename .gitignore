@@ -2,3 +2,7 @@ Main/*
 .DS_Store
 **/.DS_Store
 2020/*.txt
+2021/.idea/*
+2021/out/*
+2021/resources/*
+2021.iml
