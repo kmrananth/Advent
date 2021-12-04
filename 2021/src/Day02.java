@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Day02_1 {
+public class Day02 {
     public static void main(String[] args) throws IOException {
         Path inputPath = Paths.get("./resources/day02.txt");
         List<String> inputData = Files.lines(inputPath).collect(Collectors.toList());

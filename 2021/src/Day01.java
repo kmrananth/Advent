@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Day01_1 {
+public class Day01 {
     public static int calcIncrement(List<Integer> input, int windowSize){
         int inc=0;
         int next=windowSize;
